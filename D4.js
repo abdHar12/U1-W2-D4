@@ -121,12 +121,12 @@ function reverseString(str) {
   console.log(words);
   let reversedWords = [];
   for (let i = 0; i <= words.length; i++) {
-    if (words[i] !== undefined && words[i] !== ",") {
+    if (words[i] !== undefined) {
       reversedWords[i] = words[words.length - 1 - i];
     }
   }
-  console.log(reversedWords);
-  console.log(reversedWords.toString().length);
+  //   console.log(reversedWords);
+  //   console.log(reversedWords.toString().length);
   reversedWords = reversedWords.join("");
   return reversedWords;
 }
