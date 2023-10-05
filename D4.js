@@ -26,8 +26,7 @@ console.log("Area: " + area(9, 5));
 
 function crazySum(num1, num2) {
   if (typeof num1 === "number" && typeof num2 === "number") {
-    if (num1 === num2) return (num1 + num2) * 3;
-    else return num1 + num2;
+    return num1 === num2 ? (num1 + num2) * 3 : num1 + num2;
   } else {
     console.log(
       "Controlla meglio! Uno dei due o entrambi numeri non è un numero"
@@ -176,8 +175,8 @@ function giveMeRandom(n) {
     return array;
   } else return;
 }
-
-console.log("giveMeRandom: " + giveMeRandom(5));
+let values = giveMeRandom(5);
+console.log("giveMeRandom: ", values ? values : "Controlla il numero");
 
 /* EXTRA 1
  Scrivi una funzione chiamata "checkArray" che riceve un array di numeri casuali (creati con la funzione "giveMeRandom") e per ogni elemento stampa in console
@@ -190,7 +189,73 @@ let array = giveMeRandom(10);
 function checkArray(valuesArray) {
   for (let i = 0; i < valuesArray.length; i++) {
     if (valuesArray[i] > 5) console.log("Il valore è MAGGIORE di 5");
-    else if (valuesArray[i] < 5) console.log("Il valore è MAGGIORE di 5");
+    else if (valuesArray[i] < 5) console.log("Il valore è MINORE di 5");
     else console.log("Il valore è UGUALE di 5");
   }
 }
+checkArray(array);
+console.log(array);
+
+/* EXTRA 2
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "shoppingCartTotal" che calcola il totale dovuto al negozio (tenendo conto delle quantità di ogni oggetto).
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+let shoppingCart = [
+  { price: 10, name: "Braccialetto", id: 256, quantity: 3 },
+  { price: 150, name: "Borsa", id: 67, quantity: 1 },
+  { price: 20, name: "Maglietta", id: 574, quantity: 4 },
+  { price: 30, name: "Pantaloni", id: 55, quantity: 2 },
+  { price: 10, name: "Berretto", id: 570, quantity: 2 }
+];
+
+function shoppingCartTotal(shoppingCartForFunction) {
+  let total = 0;
+  for (let i = 0; i < shoppingCartForFunction.length; i++) {
+    total +=
+      shoppingCartForFunction[i].price * shoppingCartForFunction[i].quantity;
+  }
+  return total;
+}
+
+console.log(shoppingCartTotal(shoppingCart));
+
+/* EXTRA 3
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "addToShoppingCart" che riceve un nuovo oggetto dello stesso tipo, lo aggiunge a "shoppingCart" e ritorna il nuovo numero totale degli elementi.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+let newPurchase = { price: 20, name: "Annello", id: 33, quantity: 5 };
+
+function addToShoppingCart(purchaseToAdd, shoppingCartForFunction) {
+  shoppingCartForFunction.push(purchaseToAdd);
+}
+function printCart(shoppingCartForFunction) {
+  for (let i = 0; i < shoppingCartForFunction.length; i++) {
+    console.log(shoppingCartForFunction[i]);
+  }
+}
+console.log("Before cart:");
+printCart(shoppingCart);
+addToShoppingCart(newPurchase, shoppingCart);
+console.log("After cart:");
+printCart(shoppingCart);
+
+/* EXTRA 4
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "maxShoppingCart" che riceve l'array "shoppingCart" e ritorna l'oggetto più costoso in esso contenuto.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function maxShoppingCart(shoppingCartForFunction) {
+  let mostValuable = {};
+  mostValuable = shoppingCartForFunction[0];
+  for (let i = 0; i < shoppingCartForFunction.length; i++) {
+    if (mostValuable.price < shoppingCartForFunction[i].price)
+      mostValuable = shoppingCartForFunction[i];
+  }
+  return mostValuable;
+}
+console.table(maxShoppingCart(shoppingCart));
