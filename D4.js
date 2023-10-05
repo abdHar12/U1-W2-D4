@@ -120,10 +120,8 @@ function reverseString(str) {
   let words = str.split("");
   console.log(words);
   let reversedWords = [];
-  for (let i = 0; i <= words.length; i++) {
-    if (words[i] !== undefined) {
-      reversedWords[i] = words[words.length - 1 - i];
-    }
+  for (let i = 0; i < words.length; i++) {
+    reversedWords[i] = words[words.length - 1 - i];
   }
   //   console.log(reversedWords);
   //   console.log(reversedWords.toString().length);
@@ -142,14 +140,12 @@ console.log("reverseString:" + reverseString("123456.78953"));
 function upperFirst(phrase) {
   let words = phrase.split(" ");
   console.log(words);
-  for (let i = 0; i <= words.length; i++) {
-    if (words[i] !== undefined) {
-      // words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-      //   console.log(words[i].charAt(0).toUpperCase());
-      let capWord = words[i].charAt(0).toUpperCase();
-      //   console.log(capWord);
-      words[i] = capWord + words[i].slice(1);
-    }
+  for (let i = 0; i < words.length; i++) {
+    // words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    //   console.log(words[i].charAt(0).toUpperCase());
+    let capWord = words[i].charAt(0).toUpperCase();
+    //   console.log(capWord);
+    words[i] = capWord + words[i].slice(1);
   }
   return words.join(" ");
 }
@@ -180,5 +176,21 @@ function giveMeRandom(n) {
     return array;
   } else return;
 }
-array = giveMeRandom(5);
-console.log("giveMeRandom: " + array);
+
+console.log("giveMeRandom: " + giveMeRandom(5));
+
+/* EXTRA 1
+ Scrivi una funzione chiamata "checkArray" che riceve un array di numeri casuali (creati con la funzione "giveMeRandom") e per ogni elemento stampa in console
+ se il suo valore è maggiore di 5 o no.
+ La funzione deve inoltre ritornare la somma di tutti i valori maggiori di 5.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+let array = giveMeRandom(10);
+function checkArray(valuesArray) {
+  for (let i = 0; i < valuesArray.length; i++) {
+    if (valuesArray[i] > 5) console.log("Il valore è MAGGIORE di 5");
+    else if (valuesArray[i] < 5) console.log("Il valore è MAGGIORE di 5");
+    else console.log("Il valore è UGUALE di 5");
+  }
+}
