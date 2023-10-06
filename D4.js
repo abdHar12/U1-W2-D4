@@ -259,3 +259,74 @@ function maxShoppingCart(shoppingCartForFunction) {
   return mostValuable;
 }
 console.table(maxShoppingCart(shoppingCart));
+/* EXTRA 5
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "latestShoppingCart" che riceve l'array "shoppingCart" e ritorna l'ultimo elemento.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function latestShoppingCart(cart) {
+  return cart[cart.length - 1];
+}
+console.log(latestShoppingCart(shoppingCart));
+/* EXTRA 6
+ Crea una funzione chiamata "loopUntil" che riceve un numero intero come parametro con valore tra 0 e 9.
+ La funzione è composta da un ciclo che stampa un numero casuale tra 0 e 9 finchè il numero casuale non è maggiore di x per tre volte di fila.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function loopUntil(value) {
+  let num;
+  let count = 0;
+  do {
+    num = Math.floor(Math.random() * 10);
+    console.log(num);
+    if (num > value) count++;
+    else count = 0;
+  } while (count < 3);
+}
+
+loopUntil(7);
+/* EXTRA 7
+Crea una funzione chiamata "average" che riceve un array come parametro e ne ritorna la media aritmetica. La funzione salta automaticamente i valori non numerici nell'array.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function average(array) {
+  let sum = 0;
+  let countNum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "number") {
+      sum += array[i];
+      countNum++;
+    }
+  }
+  return sum / countNum;
+}
+
+let ar = ["ciao", 5, 6, 8, 9, "yoo", 7];
+console.log("La media: " + average(ar));
+
+/* EXTRA 8
+ Crea una funzione chiamata "longest" che trova la stringa più lunga all'interno di un array di stringhe fornito come parametro.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function longest(array) {
+  let longestString = "";
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].length > longestString.length) {
+      longestString = array[i];
+    }
+  }
+  return longestString;
+}
+
+let words = [
+  "ciao",
+  "yooooyoooo",
+  "Come state ragazzi?",
+  "sono io",
+  "rrrrrrrrrrrrrrrrrrrrr tttttttttttttttt"
+];
+console.log(longest(words));
